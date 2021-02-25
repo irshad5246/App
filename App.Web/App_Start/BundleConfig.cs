@@ -24,6 +24,9 @@ namespace App.Web
                              "~/Content/Template/fashe/vendor/lightbox2/css/lightbox.min.css",
                               "~/Content/Template/fashe/css/util.css",
                               "~/Content/Template/fashe/css/main.css"));
+            bundles.Add(new StyleBundle("~/bundles/dashboard/css").Include(
+                    "~/Content/admin-theam/vendor/fontawesome-free/css/all.min.css",
+                       "~/Content/admin-theam/css/sb-admin-2.min.css" ));
             bundles.Add(new ScriptBundle("~/bundles/js").Include(
                       "~/Content/Template/fashe/vendor/jquery/jquery-3.2.1.min.js",
                       "~/Content/Template/fashe/vendor/animsition/js/animsition.min.js",
@@ -37,8 +40,15 @@ namespace App.Web
                       "~/Content/Template/fashe/vendor/sweetalert/sweetalert.min.js",
                       "~/Content/Template/fashe/vendor/parallax100/parallax100.js",
                       "~/Content/Template/fashe/js/main.js"));
+            bundles.Add(new ScriptBundle("~/bundles/dashboard/js").Include(
+                     "~/Content/admin-theam/vendor/jquery/jquery.min.js",
+                      "~/Content/admin-theam/vendor/bootstrap/js/bootstrap.bundle.min.js",
+                     "~/Content/admin-theam/vendor/jquery-easing/jquery.easing.min.js",
+                     "~/Content/admin-theam/js/sb-admin-2.min.js"
+                     
+                     ));
 
-           
+
         }
     }
 }

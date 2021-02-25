@@ -1,0 +1,54 @@
+﻿@model App.Web.Areas.Dashboard.ViewModels.CategoryListingModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col col-lg-12">
+        <h2>Category List</h2>
+        <hr />
+    </div>
+</div>
+<div class="row mb-3">
+    <div class="col col-lg-12">
+        <form>
+            <div class="input-group">
+
+                <input type="text" id="searchTxt" name="searchterm" class="form-control" value="@Model.SearchTerm" placeholder="Search" required>
+                <div class="input-group-append">
+                    <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search mr-1"></i>Search</button>
+                    <a class="btn btn-outline-secondary" href="@Url.Action("Index", "Categories")"><i class="fas fa-redo-alt mr-1"></i>Reset</a>
+                    <button data-href="@Url.Action("Action", "Categories")" class="data-btn btn btn-outline-success" type="button" data-toggle="modal" data-target="#categoryTypeForm"><i class="fas fa-plus mr-1"></i>Create</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="col col-lg-12" id="listingArea">
+
+        @{Html.RenderPartial("_Listing", Model);}
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="categoryTypeForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+
+    </div>
+</div>
+
+<script>
+
+     $(".data-btn").click(function() {
+         $.ajax({
+             url:$(this).attr('data-href'),
+             type: "GET"
+         }).done(function (response) {
+             $("#categoryTypeForm .modal-dialog").html(response);
+       
+         });
+     });
+
+</script>

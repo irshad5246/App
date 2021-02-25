@@ -1,0 +1,96 @@
+﻿@model App.Web.Areas.Dashboard.ViewModels.CategoryListingModel
+
+@if (Model != null && Model.Categories != null && Model.Categories.Count() > 0)
+{
+
+
+    <table id="tableContainer" class="table table-striped">
+        <thead>
+            <tr>
+
+                <th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model.Categories)
+            {
+                <tr>
+                    <td>
+                        @category.Name
+                    </td>
+                    <td>
+                        @(category.Description.Length > 100 ? category.Description.Substring(0, 99) : category.Description)
+                    </td>
+
+                    <td>
+                        <button data-href="@Url.Action("Action", "Categories",new {ID=category.ID })" data-toggle="modal" data-target="#categoryTypeForm" type="button" class="data-btn btn btn-primary btn-sm"><i class="fas fa-edit mr-1"></i>Edit</button>
+                        <button data-href="@Url.Action("Delete", "Categories",new {ID=category.ID })" data-toggle="modal" data-target="#categoryTypeForm" type="button" class="data-btn btn btn-danger btn-sm"><i class="fas fa-trash mr-1"></i>Delete</button>
+                    </td>
+                </tr>
+            }
+
+
+
+        </tbody>
+    </table>
+    if (Model.Pager != null && Model.Pager.EndPage > 1)
+    {
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+                @if (Model.Pager.CurrentPage > 1)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("Index","Categories")">
+                            <i class="fa fa-angle-double-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item ">
+                        <a class="page-link" href="@Url.Action("Index", "Categories", new { pageNo = Model.Pager.CurrentPage - 1 ,searchTerm = Model.SearchTerm })">
+                            <i class="fas fa-angle-left"></i>
+                        </a>
+                    </li>
+                }
+
+                @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+                {
+                    <li class="page-item @(page == Model.Pager.CurrentPage ? "active" : "")">
+                        <a class="page-link" href="@Url.Action("Index", "Categories", new { pageNo = page , searchTerm = Model.SearchTerm })">
+                            @page
+                        </a>
+
+                    </li>
+
+                }
+                @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("Index", "Categories", new { pageNo = Model.Pager.CurrentPage + 1 ,searchTerm = Model.SearchTerm})">
+                            <i class="fas fa-angle-right"></i>
+                           
+                        </a>
+                    </li>
+
+                    <li class="page-item">
+                        <a class="page-link" href="@Url.Action("Index", "Categories", new { pageNo = Model.Pager.TotalPages  ,searchTerm = Model.SearchTerm})">
+                            <i class="fa fa-angle-double-right"></i>
+                        </a>
+                    </li>
+                }
+
+            </ul>
+        </nav>
+    }
+
+
+}
+else
+{
+    <div class="alert alert-warning" role="alert">
+        Sorry!! There is no Records available...
+    </div>
+}
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>

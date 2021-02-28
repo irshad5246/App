@@ -8,12 +8,13 @@ using System.Threading.Tasks;
 using App.Entities;
 namespace App.Database
 {
-   public class APPContext : IdentityDbContext<AppUser>
+    public class APPContext : IdentityDbContext<AppUser>
+    //public class APPContext : DbContext
     {
-        public APPContext() 
-            : base("AppConnection")
+        public APPContext() : base("AppConnection")
         {
-
+            System.Data.Entity.Database.SetInitializer<APPContext>(new APPDBInitializer());
+            //Database.SetInitializer(new APPDBInitializer());
         }
         public static APPContext Create()
         {
@@ -21,6 +22,7 @@ namespace App.Database
         }
 
         public DbSet<Category> Categories { get; set; }
-      
+        public DbSet<Language> Languages { get; set; }
+
     }
 }

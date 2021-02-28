@@ -4911,6 +4911,10 @@
       <Project>{a5123b1c-73da-4b79-a9b9-c0800d516a27}</Project>
       <Name>App.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\App.Shared\App.Shared.csproj">
+      <Project>{1DB07A3E-B6AA-40A9-9108-DD135625499F}</Project>
+      <Name>App.Shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -2,7 +2,8 @@
 @{
     ViewBag.Title = "Index";
 }
-
+@using App.Shared.Helpers;
+<h1>Language : @AppDataHelper.Currentlanguage.Name</h1>
 <div class="row">
     <div class="col col-lg-12">
         <h2>Category List</h2>
@@ -38,7 +39,7 @@
 
     </div>
 </div>
-
+<!-- Modal -->
 <script>
 
      $(".data-btn").click(function() {

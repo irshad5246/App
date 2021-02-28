@@ -63,6 +63,7 @@
     <Compile Include="AppUser.cs" />
     <Compile Include="BaseEntity.cs" />
     <Compile Include="Category.cs" />
+    <Compile Include="Language.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

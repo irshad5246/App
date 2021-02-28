@@ -1,5 +1,6 @@
 ﻿using App.Entities;
 using App.Services;
+using App.Shared.Helpers;
 using App.Web.Areas.Dashboard.ViewModels;
 using App.Web.ViewModels;
 using System;
@@ -7,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
+using System.Web.Routing;
 
 namespace App.Web.Areas.Dashboard.Controllers
 {
@@ -111,5 +112,40 @@ namespace App.Web.Areas.Dashboard.Controllers
             }
             return json;
         }
+
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            var languageShortCode = GetLanguageShortCodeFromeURL();
+
+            if (!string.IsNullOrEmpty(languageShortCode))
+            {
+                AppDataHelper.Currentlanguage = LanguagesService.Instance.GetLanguageByShortCode(languageShortCode);
+            }
+            if (AppDataHelper.Currentlanguage == null)
+            {
+                AppDataHelper.Currentlanguage = LanguagesService.Instance.GetDefaultLanguage();
+            }
+          
+        }
+
+        public string GetLanguageShortCodeFromeURL()
+        {
+            RouteValueDictionary routevalues = HttpContext.Request.RequestContext.RouteData.Values;
+            string value = string.Empty;
+            foreach (var routevalue in routevalues)
+            {
+                if (routevalue.Key.ToLower() =="lang")
+                {
+                    value = routevalue.Value.ToString();
+                    break;
+                }
+
+            }
+            return value;
+        }
+
+
     }
+
+    
 }

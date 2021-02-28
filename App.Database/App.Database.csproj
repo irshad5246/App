@@ -51,6 +51,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APPContext.cs" />
+    <Compile Include="APPDBInitializer.cs" />
     <Compile Include="Migrations\202102231334055_addinitialtbl.cs" />
     <Compile Include="Migrations\202102231334055_addinitialtbl.Designer.cs">
       <DependentUpon>202102231334055_addinitialtbl.cs</DependentUpon>
@@ -75,6 +77,18 @@
     <Compile Include="Migrations\202102241222512_abbt.cs" />
     <Compile Include="Migrations\202102241222512_abbt.Designer.cs">
       <DependentUpon>202102241222512_abbt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102261453223_addlangguage.cs" />
+    <Compile Include="Migrations\202102261453223_addlangguage.Designer.cs">
+      <DependentUpon>202102261453223_addlangguage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102280340532_adlangclm.cs" />
+    <Compile Include="Migrations\202102280340532_adlangclm.Designer.cs">
+      <DependentUpon>202102280340532_adlangclm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202102280355399_adlangclm1.cs" />
+    <Compile Include="Migrations\202102280355399_adlangclm1.Designer.cs">
+      <DependentUpon>202102280355399_adlangclm1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +118,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102241222512_abbt.resx">
       <DependentUpon>202102241222512_abbt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102261453223_addlangguage.resx">
+      <DependentUpon>202102261453223_addlangguage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102280340532_adlangclm.resx">
+      <DependentUpon>202102280340532_adlangclm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102280355399_adlangclm1.resx">
+      <DependentUpon>202102280355399_adlangclm1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

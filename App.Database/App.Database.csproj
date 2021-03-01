@@ -90,6 +90,10 @@
     <Compile Include="Migrations\202102280355399_adlangclm1.Designer.cs">
       <DependentUpon>202102280355399_adlangclm1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202102281545430_languageresource.cs" />
+    <Compile Include="Migrations\202102281545430_languageresource.Designer.cs">
+      <DependentUpon>202102281545430_languageresource.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -127,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202102280355399_adlangclm1.resx">
       <DependentUpon>202102280355399_adlangclm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202102281545430_languageresource.resx">
+      <DependentUpon>202102281545430_languageresource.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -198,6 +198,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Dashboard\Controllers\CategoriesController.cs" />
+    <Compile Include="Areas\Dashboard\Controllers\DashboardBaseController.cs" />
     <Compile Include="Areas\Dashboard\Controllers\DashboardController.cs" />
     <Compile Include="Areas\Dashboard\DashboardAreaRegistration.cs" />
     <Compile Include="Areas\Dashboard\ViewModels\CategoryViewModels.cs" />
@@ -4889,6 +4890,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Dashboard\Models\" />
+    <Folder Include="Areas\Dashboard\Views\DashboardBase\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

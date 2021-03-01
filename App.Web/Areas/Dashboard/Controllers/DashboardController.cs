@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace App.Web.Areas.Dashboard.Controllers
 {
-    public class DashboardController : Controller
+    public class DashboardController : DashboardBaseController
     {
         // GET: Dashboard/Dashboard
         public ActionResult Index()

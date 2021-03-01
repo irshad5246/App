@@ -23,6 +23,7 @@ namespace App.Database
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Language> Languages { get; set; }
+        public DbSet<LanguageResource> LanguageResources { get; set; }
 
     }
 }

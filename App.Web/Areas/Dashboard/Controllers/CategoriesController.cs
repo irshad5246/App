@@ -12,7 +12,7 @@ using System.Web.Routing;
 
 namespace App.Web.Areas.Dashboard.Controllers
 {
-    public class CategoriesController : Controller
+    public class CategoriesController : DashboardBaseController
     {
         // GET: Dashboard/Categories
         public ActionResult Index(string searchTerm, int? categoryID, int? pageNo)
@@ -113,36 +113,9 @@ namespace App.Web.Areas.Dashboard.Controllers
             return json;
         }
 
-        protected override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            var languageShortCode = GetLanguageShortCodeFromeURL();
+      
 
-            if (!string.IsNullOrEmpty(languageShortCode))
-            {
-                AppDataHelper.Currentlanguage = LanguagesService.Instance.GetLanguageByShortCode(languageShortCode);
-            }
-            if (AppDataHelper.Currentlanguage == null)
-            {
-                AppDataHelper.Currentlanguage = LanguagesService.Instance.GetDefaultLanguage();
-            }
-          
-        }
-
-        public string GetLanguageShortCodeFromeURL()
-        {
-            RouteValueDictionary routevalues = HttpContext.Request.RequestContext.RouteData.Values;
-            string value = string.Empty;
-            foreach (var routevalue in routevalues)
-            {
-                if (routevalue.Key.ToLower() =="lang")
-                {
-                    value = routevalue.Value.ToString();
-                    break;
-                }
-
-            }
-            return value;
-        }
+     
 
 
     }

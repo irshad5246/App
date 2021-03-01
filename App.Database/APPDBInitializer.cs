@@ -37,6 +37,13 @@ namespace App.Database
                 ShortCode = "hi",
                 CreatedOn = DateTime.Now
             });
+            context.Languages.Add(new Entities.Language()
+            {
+                Name = "Urdu",
+                ShortCode = "ur",
+                IsRTL = true,
+                CreatedOn = DateTime.Now
+            });
         }
     }
 }

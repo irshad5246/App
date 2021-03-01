@@ -39,7 +39,12 @@ namespace App.Services
             var context = new APPContext();
             return context.Languages.FirstOrDefault(x => x.ShortCode==shortCode);
         }
-       
+        public List<LanguageResource> GetLanguageResources()
+        {
+            var context = new APPContext();
+            return context.LanguageResources.ToList();
+        }
+
     }
 }
 
